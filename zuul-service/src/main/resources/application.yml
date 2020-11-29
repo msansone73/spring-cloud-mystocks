@@ -16,12 +16,12 @@ eureka:
 
 zuul:
   routes:
-#      stock-db-service:
-#        path: /api/stockdb/**
-#        strip-prefix: false   
-#      stock-web-service:
-#        path: /api/stockweb/**
-#        strip-prefix: false  
+      stock-db-service:
+        path: /api/stockdb/**
+        strip-prefix: false   
+      stock-web-service:
+        path: /api/stockweb/**
+        strip-prefix: false  
       portfolio-service:          
         path: /api/portfolio/**
         strip-prefix: false    
