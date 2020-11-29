@@ -14,4 +14,5 @@ public interface StockService {
 
 	Stock getStockByCode(String code);
 
+    Stock update(Long id, Stock stock);
 }
