@@ -1,0 +1,12 @@
+server:
+  port: 8082
+  
+spring:
+  application:
+      name: stock-db-service
+  profiles:
+    active: default
+  cloud:
+    config:
+      uri: http://localhost:8888
+

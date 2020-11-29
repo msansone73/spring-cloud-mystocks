@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-service 
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: /Users/msansone/Documents/git/java/spring-cloud-mystocks/config-service/src/main/resources/configs

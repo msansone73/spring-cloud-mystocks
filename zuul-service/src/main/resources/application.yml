@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: zuul-service
+    
+server:
+  port: 8070
+
+# Eureka client
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+  
+
+zuul:
+  routes:
+#      stock-db-service:
+#        path: /api/stockdb/**
+#        strip-prefix: false   
+#      stock-web-service:
+#        path: /api/stockweb/**
+#        strip-prefix: false  
+      portfolio-service:          
+        path: /api/portfolio/**
+        strip-prefix: false    
+
+  
+
