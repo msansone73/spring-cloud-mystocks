@@ -55,7 +55,7 @@ public class PortifolioServiceImpl implements PortifolioService{
 		LOG.info("última atualização : "+ stock.getDateLoastvalue());
 
 		// if stock value stored is old, reload value from web
-		if (LocalDateTime.now().minusMinutes(5).isAfter(stock.getDateLoastvalue())){
+		if (stock.getDateLoastvalue()==null || LocalDateTime.now().minusMinutes(5).isAfter(stock.getDateLoastvalue())){
 			LOG.info("getting last stock value from web...");
 			// get stockUnitaryValue from web
 			ResponseEntity<StockWebResponse> response = stockWebClient.getStockWebValue(stockCode);
