@@ -2,11 +2,11 @@ package br.com.msansone.api.stockwebservice.service;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import br.com.msansone.api.stockwebservice.ado.IWebAccess;
+import br.com.msansone.api.stockwebservice.model.StockWebInfoResponse;
+import br.com.msansone.api.stockwebservice.model.StockWebValResponse;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,30 +15,16 @@ public class StockWebServiceImpl implements StockWebService {
 	static String URI="https://www.fundsexplorer.com.br/funds/";
 
 	@Override
-	public BigDecimal getValue(String code) throws IOException {
-
-		
-		
-		String value="0";
-		Document doc = Jsoup.connect(URI+code).get();
-		
-        Elements elem = doc.getElementsByAttributeValue("class", "price");
-        for (Element headline : elem) {
-        	value=headline.html();
-        }
-		return toBigDecimal(value);
-		
-//		return new BigDecimal("23");
-		
-		
+	public BigDecimal getValue(String code, IWebAccess webAccess) throws IOException {
+		StockWebInfoResponse response = webAccess.getStockInfoData(code);
+		//return response.getValue();
+		return null;
 	}
 
-	private BigDecimal toBigDecimal(String value) {
-		return new BigDecimal(value
-				.replace("R", "")
-				.replace("$", "")
-				.replace(",", ".")
-				.replace(" ", ""));
+	@Override
+	public StockWebValResponse getStockValues(String code, IWebAccess webAccess) throws IOException {
+		return webAccess.getStockValData(code, LocalDate.now());
 	}
+
 
 }
