@@ -4,3 +4,11 @@ server:
 spring:
   application:
       name: portfolio-service
+
+
+feign:
+  client:
+    config:
+      stock-web-service:
+        connectTimeout: 600000
+        readTimeout: 600000
