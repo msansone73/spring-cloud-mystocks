@@ -13,18 +13,21 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
   
-
 zuul:
   routes:
-      stock-db-service:
-        path: /api/stockdb/**
-        strip-prefix: false   
-      stock-web-service:
-        path: /api/stockweb/**
-        strip-prefix: false  
-      portfolio-service:          
-        path: /api/portfolio/**
-        strip-prefix: false    
+    stock-db-service:
+      path: /api/stockdb/**
+      strip-prefix: false
+    stock-web-service:
+      path: /api/stockweb/**
+      strip-prefix: false
+    portfolio-service:
+      path: /api/portifolio/**
+      strip-prefix: false
 
-  
 
+ribbon:
+  ReadTimeout: 60000
+  connection-timeout: 3000
+  eureka:
+    enabled: true

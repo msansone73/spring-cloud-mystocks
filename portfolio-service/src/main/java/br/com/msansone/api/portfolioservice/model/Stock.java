@@ -2,7 +2,7 @@ package br.com.msansone.api.portfolioservice.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+import java.time.LocalDateTime;
 
 
 public class Stock {
@@ -12,7 +12,7 @@ public class Stock {
 	private String name;
 	private String description;
 	private BigDecimal lastValue;
-	private LocalDate dateLoastvalue;
+	private LocalDateTime dateLoastvalue;
 	
 	public Long getId() {
 		return id;
@@ -44,13 +44,22 @@ public class Stock {
 	public void setLastValue(BigDecimal lastValue) {
 		this.lastValue = lastValue;
 	}
-	public LocalDate getDateLoastvalue() {
+	public LocalDateTime getDateLoastvalue() {
 		return dateLoastvalue;
 	}
-	public void setDateLoastvalue(LocalDate dateLoastvalue) {
+	public void setDateLoastvalue(LocalDateTime dateLoastvalue) {
 		this.dateLoastvalue = dateLoastvalue;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Stock{" +
+				"id=" + id +
+				", code='" + code + '\'' +
+				", name='" + name + '\'' +
+				", description='" + description + '\'' +
+				", lastValue=" + lastValue +
+				", dateLoastvalue=" + dateLoastvalue +
+				'}';
+	}
 }

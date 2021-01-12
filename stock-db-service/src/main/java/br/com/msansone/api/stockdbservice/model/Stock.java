@@ -2,6 +2,7 @@ package br.com.msansone.api.stockdbservice.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Stock {
 	private String name;
 	private String description;
 	private BigDecimal lastValue;
-	private LocalDate dateLoastvalue;
+	private LocalDateTime dateLastvalue;
 	
 	public Long getId() {
 		return id;
@@ -54,11 +55,11 @@ public class Stock {
 	public void setLastValue(BigDecimal lastValue) {
 		this.lastValue = lastValue;
 	}
-	public LocalDate getDateLoastvalue() {
-		return dateLoastvalue;
+	public LocalDateTime getDateLoastvalue() {
+		return dateLastvalue;
 	}
-	public void setDateLoastvalue(LocalDate dateLoastvalue) {
-		this.dateLoastvalue = dateLoastvalue;
+	public void setDateLoastvalue(LocalDateTime dateLoastvalue) {
+		this.dateLastvalue = dateLoastvalue;
 	}
 	
 	
