@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  eureka:
+    image: "marcioe/eureka-service:v1"
+    ports:
+      - "8761:8761"
