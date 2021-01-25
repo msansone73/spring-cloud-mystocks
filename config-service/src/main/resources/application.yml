@@ -8,6 +8,6 @@ spring:
     name: config-service 
   cloud:
     config:
-      server:
-        native:
-          search-locations: /Users/msansone/Documents/git/java/spring-cloud-mystocks/config-service/src/main/resources/configs
+      server:        
+        git:
+          uri: https://github.com/msansone73/spring-cloud-mystocks/tree/main/config-service/src/main/resources.git

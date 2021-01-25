@@ -1,0 +1,6 @@
+version: "3.3"
+services:
+  eureka:
+    image: "marcioe/config-service:v1"
+    ports:
+      - "8761:8761"
