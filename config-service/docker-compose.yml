@@ -4,6 +4,8 @@ services:
     image: "msansone/config-service:v1"
     ports:
       - "8888:8888"
+    environment:
+      EUREKA_SERVER: sec.msansone.com.br   
       
 networks:
   default:

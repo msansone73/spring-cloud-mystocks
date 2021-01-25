@@ -1,5 +1,7 @@
 FROM java:8 
 #VOLUME /tmp
+ARG EUREKA_SERVER
+ENV EUREKA_SERVER=${EUREKA_SERVER}
 ARG JAR_FILE
 ADD ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
