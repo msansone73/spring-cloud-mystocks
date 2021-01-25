@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  config:
+    image: "msansone/stock-web-service:v1"
+    ports:
+      - "8084:8084"
+    environment:
+      EUREKA_SERVER: sec.msansone.com.br   
+      
+networks:
+  default:
+    # Use a custom driver
+    driver: bridge
