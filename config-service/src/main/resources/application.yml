@@ -1,6 +1,11 @@
 server:
   port: 8888
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://sec.msansone.com.br:8761/eureka/
+
 spring:
   profiles:
     active: native
@@ -11,3 +16,6 @@ spring:
       server:        
         git:
           uri: https://github.com/msansone73/spring-cloud-mystocks/tree/main/config-service/src/main/resources.git
+
+  
+  

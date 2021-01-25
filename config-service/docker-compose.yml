@@ -1,6 +1,11 @@
 version: "3.3"
 services:
-  eureka:
-    image: "marcioe/config-service:v1"
+  config:
+    image: "msansone/config-service:v1"
     ports:
-      - "8761:8761"
+      - "8888:8888"
+      
+networks:
+  default:
+    # Use a custom driver
+    driver: bridge
