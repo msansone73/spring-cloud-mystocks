@@ -6,7 +6,15 @@ spring:
       name: stock-db-service
   profiles:
     active: default
-  cloud:
-    config:
-      uri: http://localhost:8888
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
 
+
+# Eureka client
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}

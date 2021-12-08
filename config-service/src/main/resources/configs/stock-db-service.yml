@@ -2,7 +2,7 @@ spring:
   datasource:
       driver-class-name: org.postgresql.Driver
       platform: postgres
-      url: jdbc:postgresql://sec.msansone.com.br:5432/mstocks
+      url: jdbc:postgresql://localhost:5432/mstocks
       password: senha
       username: msansone
   jpa:
