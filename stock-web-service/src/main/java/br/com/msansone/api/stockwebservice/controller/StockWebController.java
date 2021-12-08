@@ -27,7 +27,6 @@ public class StockWebController {
 		StockWebValResponse response = new StockWebValResponse();
 		
 		try {
-			response.setCode(code);
 			//response.setValue(stockWebService.getValue(code, new FundsExplorerWebAccess()));
 			response = stockWebService.getStockValues(code, new MarketStackWebAccess());
 		} catch (IOException e) {

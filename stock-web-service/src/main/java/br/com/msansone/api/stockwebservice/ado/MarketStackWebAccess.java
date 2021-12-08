@@ -36,6 +36,7 @@ public class MarketStackWebAccess implements IWebAccess {
 
     @Override
     public StockWebInfoResponse getStockInfoData(String code) throws IOException {
+        LOG.info("getStockInfoData(String code) : code="+code);
 
         StockWebInfoResponse retorno = new StockWebInfoResponse();
 
@@ -45,12 +46,9 @@ public class MarketStackWebAccess implements IWebAccess {
         HttpEntity entity = response.getEntity();
 
         String result = EntityUtils.toString(entity);
-        //LOG.info(result);
+
         Gson gson = new Gson();
         JsonEntityTickers tic = gson.fromJson(result, JsonEntityTickers.class);
-
-        //LOG.info("symbol=" + tic.getPagination().getLimit());
-        //LOG.info("symbol=" + tic.getData().get(0).getName());
 
         retorno.setCode(code);
         retorno.setName(tic.getData().get(0).getName());
@@ -65,6 +63,7 @@ public class MarketStackWebAccess implements IWebAccess {
 
     @Override
     public StockWebValResponse getStockValData(String code, LocalDate date) throws IOException {
+    	LOG.info("getStockValData(String code, LocalDate date): code="+code+ ", date="+date);
 
         String result="";
         StockWebValResponse retorno = new StockWebValResponse();
@@ -78,16 +77,14 @@ public class MarketStackWebAccess implements IWebAccess {
         HttpEntity entity = response.getEntity();
         result = EntityUtils.toString(entity);
 
-        //LOG.info(result);
         Gson gson = new Gson();
         JsonEntityEOD tic = gson.fromJson(result, JsonEntityEOD.class);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         LocalDateTime agora = LocalDateTime.of(LocalDate.now(), LocalDateTime.MIN.toLocalTime());
         agora=agora.minusDays(1);
-        //LOG.info("agora = "+agora);
+
         String formattedDate = agora.format(formatter)+"+0000";
-        //LOG.info("formattedDate="+formattedDate);
 
         Comparator<JEStockValue> comparator = Comparator.comparing(JEStockValue::getDate);
         
